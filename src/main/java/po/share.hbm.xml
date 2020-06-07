@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- 实体类和表的关系 -->
+    <class name="po.entity.Share" table="Share">
+        <!-- 配置主键 -->
+        <id name="id" type="java.lang.Integer" column="id">
+            <!-- 类型选择自增长,mysql可用 -->
+            <generator class="identity"></generator>
+        </id>
+        <property name="name" type="java.lang.String" column="name"/>
+        <property name="catalog" type="java.lang.String" column="catalog"/>
+        <property name="develeopType" type="java.lang.String" column="develeopType"/>
+        <property name="theme" type="java.lang.String" column="theme"/>
+        <property name="describe" type="java.lang.String" column="describe"/>
+        <property name="label" type="java.lang.String" column="label"/>
+        <property name="sharingType" type="java.lang.String" column="sharingType"/>
+        <property name="filePath" type="java.lang.String" column="filePath"/>
+    </class>
+</hibernate-mapping>

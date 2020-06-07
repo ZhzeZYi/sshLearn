@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 指定Struts 2配置文件的DTD信息 -->
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- Struts 2配置文件的根元素 -->
+<!--并没有交给Spring来管理,默认是多例的,交给spring管理要设置多例属性-->
+<struts>
+	<!-- 配置了系列常量 -->
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<constant name="struts.devMode" value="false"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+	<constant name="struts.multipart.maxSize" value="30000000"/>
+
+
+	<!--在该package下的所有action，都会在运行action前和运行action后，执行struts-default拦截器堆栈(通过extends属性指定)-->
+	<package name="default" namespace="/" extends="struts-default,json-default">
+
+	<!--拦截器-->
+	<interceptors>
+		<interceptor-stack name="mydefault">
+			<!--defaultStack栈包含很多程序到达action之前需要处理的功能代码，比如参数类型的转换，自动注入等功能-->
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+
+		<!--（设置所有Action自动调用的拦截器堆栈）-->
+	<default-interceptor-ref name="mydefault"></default-interceptor-ref>
+
+
+<!--	<global-results>-->
+<!--		<result name="login" type="redirect">/content/login.jsp</result>-->
+<!--	</global-results>-->
+
+	<action name="login" class="action.UserLoginAction" method="login">
+		<result name="ok">index.jsp</result>
+	</action>
+
+	<action name="getUser" class="action.UserLoginAction" method="getUser">
+		<result name="ok">content/getsucc.jsp</result>
+	</action>
+
+	<action name="addUser" class="action.UserLoginAction" method="addUser">
+		<result name="ok">content/addsucc.jsp</result>
+	</action>
+
+    <action name="dataMonitoring"  class="action.UserLoginAction" method="dataMonitoring">
+		<result name="dataMonitoring">dataMonitoring.jsp</result>
+	</action>
+
+
+	<action name="getMonitoring" class="action.UserLoginAction" method="getMonitoring">
+		<result name="getMonitoring">monitoring.jsp</result>
+	</action>
+
+	<action name="saveDataServer" class="action.UserLoginAction" method="saveDataServer">
+		<result name="saveDataServer">share.jsp</result>
+	</action>
+
+	<!--<action name="*">-->
+			<!--<result>/WEB-INF/content/{1}.jsp</result>-->
+		<!--</action>-->
+	</package>
+
+</struts>

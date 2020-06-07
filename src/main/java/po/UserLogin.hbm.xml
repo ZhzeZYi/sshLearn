@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 实体类和表的关系 -->
+    <class name="po.entity.UserLogin" table="user_login">
+    	<!-- 配置主键 -->
+    	<id name="userId" type="java.lang.Integer" column="userId">
+    		<!-- 类型选择自增长,mysql可用 -->
+    		<generator class="identity"></generator>
+    	</id>
+    	<property name="username" type="java.lang.String" column="username"/>
+    	<property name="password" type="java.lang.String" column="password"/>
+    </class>
+</hibernate-mapping>

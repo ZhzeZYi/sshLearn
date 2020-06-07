@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!-- 实体类和表的关系 -->
+    <class name="po.entity.Monitoring" table="monitoring">
+        <!-- 配置主键 -->
+        <id name="dataID" type="java.lang.Integer" column="dataID">
+            <!-- 类型选择自增长,mysql可用 -->
+            <generator class="identity"></generator>
+        </id>
+        <property name="taskTime" type="java.sql.Date" column="taskTime"/>
+        <property name="name" type="java.lang.String" column="name"/>
+        <property name="dispatchID" type="java.lang.Integer" column="dispatchID"/>
+        <property name="jobID" type="java.lang.Integer" column="jobID"/>
+        <property name="taskTypes" type="java.lang.String" column="taskTypes"/>
+        <property name="executionCycle" type="java.lang.String" column="executionCycle"/>
+        <property name="state" type="java.lang.String" column="state"/>
+        <property name="maxNumberRetries" type="java.lang.Integer" column="maxNumberRetries"/>
+        <property name="currentNumberRetries" type="java.lang.Integer" column="currentNumberRetries"/>
+        <property name="startExecutionTime" type="java.sql.Date" column="startExecutionTime"/>
+        <property name="endExecutionTime" type="java.sql.Date" column="endExecutionTime"/>
+    </class>
+</hibernate-mapping>
